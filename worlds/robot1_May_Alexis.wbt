@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2919056479038731 0.9333111238259755 0.20909672131459756 4.973970820550919
-  position -1.321242946293692 0.5688463302921032 0.5328636754473949
+  orientation 0.8256374340201674 -0.5616356557268087 -0.05374214138747535 6.052421521305293
+  position 0.17310095904399708 0.38076270463907985 1.467391905032293
 }
 TexturedBackground {
 }
@@ -29,6 +29,10 @@ Robot {
             axis 0 0 1
             anchor -0.05 0 0.05
           }
+          device [
+            RotationalMotor {
+            }
+          ]
           endPoint Solid {
             translation -0.0499976466545348 6.244352856585705e-06 0.06000317076252501
             rotation 0.9999999708596192 0.00017045328350943434 0.00017095741808274235 1.5699997602922906
@@ -73,11 +77,24 @@ Robot {
             axis 1 1 1
             anchor 0.11 -0.035 0
           }
+          endPoint Solid {
+            translation 0.11 -0.05 0
+            rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 0
+            children [
+              Shape {
+                appearance USE A_W
+                geometry DEF G_S Sphere {
+                  radius 0.015
+                }
+              }
+            ]
+            name "solid(2)"
+            boundingObject USE G_S
+            physics Physics {
+            }
+          }
         }
       ]
     }
   ]
-  boundingObject USE G_BOX
-  physics Physics {
-  }
 }
