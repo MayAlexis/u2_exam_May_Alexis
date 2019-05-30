@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.6931032800836722 0.6931032800836722 0.1980295085953349 0.75
-  position 1.2 1.6 2.3
+  orientation 0.2919056479038731 0.9333111238259755 0.20909672131459756 4.973970820550919
+  position -1.321242946293692 0.5688463302921032 0.5328636754473949
 }
 TexturedBackground {
 }
@@ -12,4 +12,72 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
+  translation 0 0.075 0
+  children [
+    Group {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+          }
+          geometry DEF G_BOX Box {
+            size 0.25 0.07 0.1
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.05 0 0.05
+          }
+          endPoint Solid {
+            translation -0.0499976466545348 6.244352856585705e-06 0.06000317076252501
+            rotation 0.9999999708596192 0.00017045328350943434 0.00017095741808274235 1.5699997602922906
+            children [
+              Shape {
+                appearance DEF A_W PBRAppearance {
+                  baseColor 0 0 0
+                }
+                geometry DEF G_W Cylinder {
+                  height 0.01
+                  radius 0.075
+                }
+              }
+            ]
+            boundingObject USE G_W
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+            anchor -0.05 0 -0.05
+          }
+          endPoint Solid {
+            translation -0.05 0 -0.06
+            rotation -0.7228719530004886 -0.4884034850859072 -0.48879256880725935 4.394172730933238
+            children [
+              Shape {
+                appearance USE A_W
+                geometry USE G_W
+              }
+            ]
+            name "solid(1)"
+            boundingObject USE G_W
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 1 1 1
+            anchor 0.11 -0.035 0
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE G_BOX
+  physics Physics {
+  }
 }
