@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.8256374340201674 -0.5616356557268087 -0.05374214138747535 6.052421521305293
-  position 0.17310095904399708 0.38076270463907985 1.467391905032293
+  orientation 0.7257546682800938 -0.6178414862128471 -0.3025757085159862 5.095977705593531
+  position 0.5762175656414669 1.142303020927633 0.8321516514228846
 }
 TexturedBackground {
 }
@@ -30,7 +30,7 @@ Robot {
             anchor -0.05 0 0.05
           }
           device [
-            RotationalMotor {
+            DEF motor_right RotationalMotor {
             }
           ]
           endPoint Solid {
@@ -52,49 +52,10 @@ Robot {
             }
           }
         }
-        HingeJoint {
-          jointParameters HingeJointParameters {
-            axis 0 0 1
-            anchor -0.05 0 -0.05
-          }
-          endPoint Solid {
-            translation -0.05 0 -0.06
-            rotation -0.7228719530004886 -0.4884034850859072 -0.48879256880725935 4.394172730933238
-            children [
-              Shape {
-                appearance USE A_W
-                geometry USE G_W
-              }
-            ]
-            name "solid(1)"
-            boundingObject USE G_W
-            physics Physics {
-            }
-          }
-        }
-        HingeJoint {
-          jointParameters HingeJointParameters {
-            axis 1 1 1
-            anchor 0.11 -0.035 0
-          }
-          endPoint Solid {
-            translation 0.11 -0.05 0
-            rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 0
-            children [
-              Shape {
-                appearance USE A_W
-                geometry DEF G_S Sphere {
-                  radius 0.015
-                }
-              }
-            ]
-            name "solid(2)"
-            boundingObject USE G_S
-            physics Physics {
-            }
-          }
-        }
       ]
     }
   ]
+  boundingObject USE G_BOX
+  physics Physics {
+  }
 }
