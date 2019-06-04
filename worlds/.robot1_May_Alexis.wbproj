@@ -7,5 +7,5 @@ centralWidgetVisible: 1
 selectionDisabled: 0
 viewpointLocked: 0
 orthographicViewHeight: 1
-textFiles: 1 "controllers/robot1/robot1.c" "../../../../../usr/local/webots/resources/projects/controllers/void/void.c"
+textFiles: 0 "controllers/robot1/robot1.c"
 globalOptionalRendering: CoordinateSystem

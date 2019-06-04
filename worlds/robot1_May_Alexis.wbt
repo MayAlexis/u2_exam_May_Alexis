@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.07300584595622385 -0.9923092868156567 -0.09996212160422893 4.395839698750579
-  position 1.0651722959571042 0.4299790453085065 -0.3579635042074151
+  orientation 0.7196316513184 -0.6220566620317697 -0.3085057465309928 5.076351490449912
+  position 0.9899369839287276 2.1160649940891885 0.9614662671870188
 }
 TexturedBackground {
 }
@@ -14,13 +14,32 @@ Floor {
 Robot {
   translation 0 0.22500000000000003 0
   children [
-    Shape {
-      appearance PBRAppearance {
-        baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
-      }
-      geometry DEF G_BOX Box {
-        size 0.25 0.07 0.1
-      }
+    DEF GR_Robot Group {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+          }
+          geometry DEF G_BOX Box {
+            size 0.25 0.07 0.1
+          }
+        }
+        Transform {
+          translation 0.11 -0.05 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.4470588235294118 0.6235294117647059 0.8117647058823529
+                roughness 1
+                metalness 0
+              }
+              geometry DEF CRY_wheel Sphere {
+                radius 0.015
+              }
+            }
+          ]
+        }
+      ]
     }
     HingeJoint {
       jointParameters HingeJointParameters {
@@ -33,15 +52,15 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.05000001802114647 -2.8953007297216615e-08 0.059994511771928084
-        rotation 1 -5.664855875451735e-13 -2.8107531006579615e-13 1.5699997602945086
+        translation -0.050018931518746396 -3.205418028221112e-05 0.059994511580506664
+        rotation -0.2801654623273084 -0.6785180070132103 -0.6790586336081345 3.6883309568015745
         children [
           Shape {
             appearance DEF A_W PBRAppearance {
               baseColor 0 0 0
             }
             geometry DEF G_W Cylinder {
-              height 0.01
+              height 0.02
               radius 0.075
             }
           }
@@ -63,8 +82,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.05 0 -0.06
-        rotation 1 0 0 1.57
+        translation -0.04999799004042214 1.0347725128983e-05 -0.06000000019718594
+        rotation -0.9353081278216833 -0.2500993537570455 -0.25029786111951896 4.646354465627367
         children [
           Shape {
             appearance USE A_W
@@ -77,7 +96,7 @@ Robot {
       }
     }
   ]
-  boundingObject USE G_BOX
+  boundingObject USE GR_Robot
   physics Physics {
   }
   controller "robot1"
