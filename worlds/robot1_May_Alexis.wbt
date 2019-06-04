@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.7257546682800938 -0.6178414862128471 -0.3025757085159862 5.095977705593531
-  position 0.5762175656414669 1.142303020927633 0.8321516514228846
+  orientation 0.07300584595622385 -0.9923092868156567 -0.09996212160422893 4.395839698750579
+  position 1.0651722959571042 0.4299790453085065 -0.3579635042074151
 }
 TexturedBackground {
 }
@@ -12,50 +12,73 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
-  translation 0 0.075 0
+  translation 0 0.22500000000000003 0
   children [
-    Group {
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
-          }
-          geometry DEF G_BOX Box {
-            size 0.25 0.07 0.1
-          }
-        }
-        HingeJoint {
-          jointParameters HingeJointParameters {
-            axis 0 0 1
-            anchor -0.05 0 0.05
-          }
-          device [
-            DEF motor_right RotationalMotor {
-            }
-          ]
-          endPoint Solid {
-            translation -0.0499976466545348 6.244352856585705e-06 0.06000317076252501
-            rotation 0.9999999708596192 0.00017045328350943434 0.00017095741808274235 1.5699997602922906
-            children [
-              Shape {
-                appearance DEF A_W PBRAppearance {
-                  baseColor 0 0 0
-                }
-                geometry DEF G_W Cylinder {
-                  height 0.01
-                  radius 0.075
-                }
-              }
-            ]
-            boundingObject USE G_W
-            physics Physics {
-            }
-          }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+      }
+      geometry DEF G_BOX Box {
+        size 0.25 0.07 0.1
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.05 0 0.06
+      }
+      device [
+        RotationalMotor {
+          name "motor_right"
         }
       ]
+      endPoint Solid {
+        translation -0.05000001802114647 -2.8953007297216615e-08 0.059994511771928084
+        rotation 1 -5.664855875451735e-13 -2.8107531006579615e-13 1.5699997602945086
+        children [
+          Shape {
+            appearance DEF A_W PBRAppearance {
+              baseColor 0 0 0
+            }
+            geometry DEF G_W Cylinder {
+              height 0.01
+              radius 0.075
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE G_W
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.05 0 -0.06
+      }
+      device [
+        RotationalMotor {
+          name "motor_left"
+        }
+      ]
+      endPoint Solid {
+        translation -0.05 0 -0.06
+        rotation 1 0 0 1.57
+        children [
+          Shape {
+            appearance USE A_W
+            geometry USE G_W
+          }
+        ]
+        boundingObject USE G_W
+        physics Physics {
+        }
+      }
     }
   ]
   boundingObject USE G_BOX
   physics Physics {
   }
+  controller "robot1"
 }
