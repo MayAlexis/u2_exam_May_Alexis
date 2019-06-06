@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.7196316513184 -0.6220566620317697 -0.3085057465309928 5.076351490449912
-  position 0.9899369839287276 2.1160649940891885 0.9614662671870188
+  orientation 0.4677014267144524 -0.8360799650808939 -0.2867501829809299 5.017718895769037
+  position 2.04423669871552 1.6783636823079897 0.9109148206524117
 }
 TexturedBackground {
 }
@@ -95,9 +95,39 @@ Robot {
         }
       }
     }
+    DistanceSensor {
+      translation 0.125 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.45098039215686275 0.8235294117647058 0.08627450980392157
+          }
+          geometry Box {
+            size 0.02 0.01 0.01
+          }
+        }
+      ]
+      name "distance_sensor"
+    }
   ]
   boundingObject USE GR_Robot
   physics Physics {
   }
   controller "robot1"
+}
+Solid {
+  translation 0.6700000000000004 0.1 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.4470588235294118 0.6235294117647059 0.8117647058823529
+      }
+      geometry DEF G_BOX Box {
+        size 0.2 0.2 0.2
+      }
+    }
+  ]
+  boundingObject USE G_BOX
+  physics Physics {
+  }
 }
