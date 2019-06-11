@@ -50,8 +50,8 @@ int main(int argc, char **argv)
    wb_distance_sensor_enable(dis_sensor, TIME_STEP);
    double ds_value;
    
-   wb_motor_set_position(wheel_right, INFINITY);
-   wb_motor_set_position(wheel_left, INFINITY);
+   wb_motor_set_position(wheel_right, 0);
+   wb_motor_set_position(wheel_left, 0);
 
   /* main loop
    * Perform simulation steps of TIME_STEP milliseconds
