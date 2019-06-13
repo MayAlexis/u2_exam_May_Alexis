@@ -1,0 +1,17 @@
+The formulas used for this project was tje following: 
+* to calculate linear velocity... V = ((2*PI*r)/60)*N
+	N = rpm
+	r = ratio
+* To get the RPM in each case i use a three rule... 500rpm is the maxvelocity this is equal to 52.32 rad/s.
+
+* Before the exam i use a convert unit in the way to transfor 3 m/s to rad/s and it is equal to 40 r/s and 0.1 m/s is equal to 1.33 rad/s
+
+* the ultrasonic sensor is rotate at 0.07 in Z axis.
+
+* the encoder was added in both wheels but only one is display because i think that it is the same and it is enough with only one.
+
+* There are a problem with the turn of the robot, i suppose that it is for the torque but i am not sure and i could not solve it.
+
+* i define PI
+
+* The box is used to test the ultrasonic sensor.
