@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.4677014267144524 -0.8360799650808939 -0.2867501829809299 5.017718895769037
-  position 2.04423669871552 1.6783636823079897 0.9109148206524117
+  orientation 0.5267517123557107 -0.8168219746001958 -0.23523285344646006 5.282543013830838
+  position 1.3447372072140014 0.8025827575209821 0.890335242492693
 }
 TexturedBackground {
 }
@@ -12,7 +12,7 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
-  translation 0 0.22500000000000003 0
+  translation 0 0.08499999999999998 0
   children [
     DEF GR_Robot Group {
       children [
@@ -58,8 +58,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.050018931518746396 -3.205418028221112e-05 0.059994511580506664
-        rotation -0.2801654623273084 -0.6785180070132103 -0.6790586336081345 3.6883309568015745
+        translation -0.049336666060276646 0.0013762586138605132 0.059995405976255904
+        rotation -0.386125271396529 -0.6520030938036283 -0.652532942049253 3.8791036193607566
         children [
           Shape {
             appearance DEF A_W PBRAppearance {
@@ -90,8 +90,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.04999799004042214 1.0347725128983e-05 -0.06000000019718594
-        rotation -0.9353081278216833 -0.2500993537570455 -0.25029786111951896 4.646354465627367
+        translation -0.04929989700044014 0.0014102528753755154 -0.05999909719608424
+        rotation 0.9861664507086423 0.11715868973095092 0.11725857289446187 1.5839411369496914
         children [
           Shape {
             appearance USE A_W
@@ -105,6 +105,7 @@ Robot {
     }
     DistanceSensor {
       translation 0.125 0 0
+      rotation 0 0 1 0.07
       children [
         Shape {
           appearance PBRAppearance {
@@ -126,10 +127,9 @@ Robot {
   ]
   boundingObject USE GR_Robot
   physics Physics {
-    density -1
-    mass 3
+    density 1300
   }
-  controller "u2_wp"
+  controller "u2_exam"
 }
 Solid {
   translation 0.6200000000000003 0.1 0

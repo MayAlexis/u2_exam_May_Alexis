@@ -1,4 +1,4 @@
-build/release/u2_wp.o: u2_wp.c \
+build/release/u2_exam.o: u2_exam.c \
  /usr/local/webots/include/controller/c/webots/robot.h \
  /usr/local/webots/include/controller/c/webots/types.h \
  /usr/local/webots/include/controller/c/webots/nodes.h \

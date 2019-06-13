@@ -70,9 +70,8 @@ int main(int argc, char **argv)
      *  double val = wb_distance_sensor_get_value(my_sensor);
      */
      
-     /*ds_value = wb_distance_sensor_get_value(dis_sensor);
+     ds_value = wb_distance_sensor_get_value(dis_sensor);
      printf("distance sensor value = %lf\n", ds_value);
-     */
      
      ps_value = wb_position_sensor_get_value(pos_sensor);
      printf("position sensor = %lf\n", ps_value);
@@ -89,22 +88,18 @@ int main(int argc, char **argv)
      if (pressed_key == WB_KEYBOARD_UP){
        wb_motor_set_velocity(wheel_right, -40);
        wb_motor_set_velocity(wheel_left, -40);
-       
-     }
-       
-     if (pressed_key == WB_KEYBOARD_LEFT){
-       wb_motor_set_velocity(wheel_right, -40);
-       wb_motor_set_velocity(wheel_left, 40);
-     }
-     
-     if (pressed_key == WB_KEYBOARD_RIGHT){
-       wb_motor_set_velocity(wheel_right, 40);
-       wb_motor_set_velocity(wheel_left, -40);
-     }
-     
-     if (pressed_key == WB_KEYBOARD_DOWN){
-       wb_motor_set_velocity(wheel_right, 1.33);
-       wb_motor_set_velocity(wheel_left, 1.33);
+     } else if (pressed_key == WB_KEYBOARD_LEFT){
+         wb_motor_set_velocity(wheel_right, -50);
+         wb_motor_set_velocity(wheel_left, 50);
+     } else if (pressed_key == WB_KEYBOARD_RIGHT){
+         wb_motor_set_velocity(wheel_right, 50);
+         wb_motor_set_velocity(wheel_left, -50);
+     } else if (pressed_key == WB_KEYBOARD_DOWN){
+         wb_motor_set_velocity(wheel_right, 1.33);
+         wb_motor_set_velocity(wheel_left, 1.33);
+     } else {
+         wb_motor_set_velocity(wheel_right, 0);
+         wb_motor_set_velocity(wheel_left, 0);
      }
        
        
