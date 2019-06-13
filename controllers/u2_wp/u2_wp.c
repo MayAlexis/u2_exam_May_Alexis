@@ -14,6 +14,7 @@
 #include <webots/motor.h>
 #include <webots/keyboard.h>
 #include <webots/distance_sensor.h>
+#include <webots/position_sensor.h>
 
 #include <stdio.h>
 
@@ -31,7 +32,7 @@ int main(int argc, char **argv)
 {
   /* necessary to initialize webots stuff */
   wb_robot_init();
-  
+ 
   wb_keyboard_enable(TIME_STEP);
   int pressed_key;
   
@@ -50,8 +51,12 @@ int main(int argc, char **argv)
    wb_distance_sensor_enable(dis_sensor, TIME_STEP);
    double ds_value;
    
-   wb_motor_set_position(wheel_right, 0);
-   wb_motor_set_position(wheel_left, 0);
+   WbDeviceTag pos_sensor = wb_robot_get_device("position_sensor1");
+   wb_position_sensor_enable(pos_sensor, TIME_STEP);
+   double ps_value;
+   
+   wb_motor_set_position(wheel_right, INFINITY);
+   wb_motor_set_position(wheel_left, INFINITY);
 
   /* main loop
    * Perform simulation steps of TIME_STEP milliseconds
@@ -65,8 +70,12 @@ int main(int argc, char **argv)
      *  double val = wb_distance_sensor_get_value(my_sensor);
      */
      
-     ds_value = wb_distance_sensor_get_value(dis_sensor);
+     /*ds_value = wb_distance_sensor_get_value(dis_sensor);
      printf("distance sensor value = %lf\n", ds_value);
+     */
+     
+     ps_value = wb_position_sensor_get_value(pos_sensor);
+     printf("position sensor = %lf\n", ps_value);
      
      pressed_key = wb_keyboard_get_key();
 
@@ -78,24 +87,24 @@ int main(int argc, char **argv)
      */
      
      if (pressed_key == WB_KEYBOARD_UP){
-       wb_motor_set_velocity(wheel_right, -5);
-       wb_motor_set_velocity(wheel_left, -5);
+       wb_motor_set_velocity(wheel_right, -40);
+       wb_motor_set_velocity(wheel_left, -40);
        
      }
        
      if (pressed_key == WB_KEYBOARD_LEFT){
-       wb_motor_set_velocity(wheel_right, -5);
-       wb_motor_set_velocity(wheel_left, 5);
+       wb_motor_set_velocity(wheel_right, -40);
+       wb_motor_set_velocity(wheel_left, 40);
      }
      
      if (pressed_key == WB_KEYBOARD_RIGHT){
-       wb_motor_set_velocity(wheel_right, 5);
-       wb_motor_set_velocity(wheel_left, -5);
+       wb_motor_set_velocity(wheel_right, 40);
+       wb_motor_set_velocity(wheel_left, -40);
      }
      
      if (pressed_key == WB_KEYBOARD_DOWN){
-       wb_motor_set_velocity(wheel_right, 5);
-       wb_motor_set_velocity(wheel_left, 5);
+       wb_motor_set_velocity(wheel_right, 1.33);
+       wb_motor_set_velocity(wheel_left, 1.33);
      }
        
        
