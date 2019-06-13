@@ -59,7 +59,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.049336666060276646 0.0013762586138605132 0.059995405976255904
-        rotation -0.386125271396529 -0.6520030938036283 -0.652532942049253 3.8791036193607566
+        rotation -0.38612527139652913 -0.6520030938036283 -0.6525329420492532 3.8791036193607566
         children [
           Shape {
             appearance DEF A_W PBRAppearance {
@@ -87,6 +87,10 @@ Robot {
           name "motor_left"
           maxVelocity 52.35
           maxTorque 0.593
+        }
+        PositionSensor {
+          name "position_sensor2"
+          resolution 1
         }
       ]
       endPoint Solid {

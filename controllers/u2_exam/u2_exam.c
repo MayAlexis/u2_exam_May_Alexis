@@ -22,6 +22,7 @@
  * You may want to add macros here.
  */
 #define TIME_STEP 64
+#define PI 3.141592
 
 /*
  * This is the main program.
@@ -36,6 +37,7 @@ int main(int argc, char **argv)
   wb_keyboard_enable(TIME_STEP);
   int pressed_key;
   
+  double linear;
 
   /*
    * You should declare here WbDeviceTag variables for storing
@@ -52,8 +54,11 @@ int main(int argc, char **argv)
    double ds_value;
    
    WbDeviceTag pos_sensor = wb_robot_get_device("position_sensor1");
+   WbDeviceTag pos_sensor2 = wb_robot_get_device("position_sensor2");
    wb_position_sensor_enable(pos_sensor, TIME_STEP);
+   wb_position_sensor_enable(pos_sensor2, TIME_STEP);
    double ps_value;
+   double ps_value2;
    
    wb_motor_set_position(wheel_right, INFINITY);
    wb_motor_set_position(wheel_left, INFINITY);
@@ -88,18 +93,42 @@ int main(int argc, char **argv)
      if (pressed_key == WB_KEYBOARD_UP){
        wb_motor_set_velocity(wheel_right, -40);
        wb_motor_set_velocity(wheel_left, -40);
+       
+       linear = ((2*PI*0.075)/60)*381.6793;
+       printf("linear velocity = %lf\n", linear);
+       printf("right wheel RPM = %lf\n", 381.6793);
+       printf("left wheel RPM = %lf\n", 381.6793);
+       
      } else if (pressed_key == WB_KEYBOARD_LEFT){
-         wb_motor_set_velocity(wheel_right, -50);
-         wb_motor_set_velocity(wheel_left, 50);
+         wb_motor_set_velocity(wheel_right, -52.3);
+         wb_motor_set_velocity(wheel_left, 0);
+         
+         printf("right wheel RPM = %d\n", 500);
+         printf("left wheel RPM = %d\n", 0);
+         
      } else if (pressed_key == WB_KEYBOARD_RIGHT){
-         wb_motor_set_velocity(wheel_right, 50);
-         wb_motor_set_velocity(wheel_left, -50);
+         wb_motor_set_velocity(wheel_right, 0);
+         wb_motor_set_velocity(wheel_left, -52.3);
+         
+         printf("right wheel RPM = %d\n", 0);
+         printf("left wheel RPM = %d\n", 500);
+         
      } else if (pressed_key == WB_KEYBOARD_DOWN){
          wb_motor_set_velocity(wheel_right, 1.33);
          wb_motor_set_velocity(wheel_left, 1.33);
+         
+         linear = ((2*PI*0.075)/60)*12.6908;
+         printf("linear velocity = %lf\n", linear);
+         printf("right wheel RPM = %lf\n", 12.6908);
+         printf("left wheel RPM = %lf\n", 12.6908);
+         
      } else {
          wb_motor_set_velocity(wheel_right, 0);
          wb_motor_set_velocity(wheel_left, 0);
+         linear = ((2*PI*0.075)/60)*0;
+         printf("linear velocity = %lf\n", linear);
+         printf("right wheel RPM = %d\n", 0);
+         printf("left wheel RPM = %d\n", 0);
      }
        
        
